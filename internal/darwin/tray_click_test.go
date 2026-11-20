@@ -61,8 +61,8 @@ func TestItemFrame(t *testing.T) {
 }
 
 // TestClickedItem takes a click whose pointer is in the item's window as a
-// click on the item itself, whatever the click's place in the window says: the
-// two are read at different times, and the pointer moves in between.
+// click on the item itself, whatever the click's place in the window says,
+// which macOS 26 and 27 make the item's middle wherever the click landed.
 func TestClickedItem(t *testing.T) {
 	window := NSRect{Origin: NSPoint{X: 159, Y: 1050}, Size: NSSize{Width: 54, Height: 24}}
 	if got := clickedItem(window, NSPoint{X: 190, Y: 1060}, NSPoint{X: 12, Y: 3}); got != window {

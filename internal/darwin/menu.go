@@ -1710,9 +1710,9 @@ func (t *tray) noteClick(ev id) {
 
 // clickedItem is the frame on screen of the item a click hit, the pointer at
 // at and the click in at its window: the window's own, when the pointer is in
-// it, and else the copy's (clickedCopy). The pointer's place is read as the
-// action runs, the click's as it happened: the pointer moving in between would
-// move the item with it.
+// it, and else the copy's (clickedCopy). The click's place in the window
+// can't be trusted there: on macOS 26 and 27 it is the item's middle wherever the
+// click landed, which would move the item by as much as the click was off it.
 func clickedItem(window NSRect, at, in NSPoint) NSRect {
 	if inRect(at, window) {
 		return window
